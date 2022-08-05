@@ -1,0 +1,252 @@
+
+//Anonymous function
+//1.Odd number
+var odd = function (num) {
+    let res=[];
+    for(let key of num){
+        if(key%2 !== 0){
+           res.push(key); 
+        }
+    }
+    return res;
+    }
+console.log(odd([11,13,19,16]));
+//2.Title caps
+
+var caps = function (arr){ 
+    console.log(arr.split(" ").map(words=>words[0].toUpperCase()+words.substr(1).toLowerCase()).join(" "));
+    }
+caps("work hard");
+
+//3.Sum
+
+var sum= function (num){
+    let add=0;
+    for(let k of num){
+        add+= k;                    
+        }
+    return add;
+    };
+
+console.log(sum([1,6]));
+//4.Prime number
+
+var prime = function(num){
+    num = num.filter((element) => {
+        for(var i=2; i<=Math.sqrt(element);i++){
+            if(element % 2 === 0) return false;
+        }
+        return true;
+    });
+    return num;
+};
+console.log(prime([1,2,13,4]));
+
+//5.Palindromes
+let pali1 = function(dome){
+    let res=[];
+    for(let key of dome){
+        let n = key.split("");
+        let r = n.reverse();
+        let v = r.join("");
+        if(key == v){
+            res.push(key);
+        }else{
+            continue;
+        }
+    }
+    return res;
+};
+console.log(pali1(["deed","robo"]));
+
+//6.Median of two sorted array
+
+var num=function(awa,aww){
+    res1=[];
+    res2=[];
+    awa.sort((a,b)=>a-b);                                                                                   
+    aww.sort((a,b)=>a-b);
+   let l = awa.length /2;
+   if(l%2===0){
+       res1.push(awa[(awa.length/2)-1],awa[awa.length/2]);
+       res2.push(aww[(aww.length/2)-1],aww[aww.length/2]);                     
+   }else{
+       res1.push(awa[Math.floor(awa.length/2)]);
+       res2.push(aww[Math.floor(aww.length/2)]);
+   }
+   
+   
+   return(res1,res2);
+   
+}
+console.log(num([1,2,3,4,5],[7,8,9]));
+ 
+//7.Remove duplicate
+
+var num=function(dupe){
+    let res =[];
+    res.push(dupe[0]);
+    for(let key of dupe){                              
+        if(res.indexOf(key) == -1){
+            res.push(key);
+        } 
+    }
+   return res;
+}
+console.log(num([7,7,8,5,2])); 
+
+//IIFE function
+//1.Odd number
+(function(num){
+    
+    for(let key of num){ 
+        if(key%2 !== 0){                        
+            console.log(key);
+        }
+    }
+})
+([1,2,3,4]);
+
+//2.Title caps
+
+(function(str){
+    console.log(str.split(" ").map(words => words[0].toUpperCase()+words.substr(1).toLowerCase()).join(" ")); 
+})("hello world");
+
+//3.Sum
+
+(function(num){
+    
+    let count =0;
+    for(let key of num){
+        count+= key;      
+    }
+    console.log(count);
+})([3,6,1]);
+
+//4.Prime number
+
+(function(prime){     
+                                                    
+prime = prime.filter((number) => {
+    for (var i = 2; i <= Math.sqrt(number); i++) {       
+        if (number % i === 0) return false;
+    }
+    return true;
+});
+console.log(prime);
+})([1,2,3,4]);
+
+//5.Palindromes
+
+(function(str){
+    let res =[];
+    for(let key of str){
+        let n = key.split("");
+        let r = n.reverse();                                                            
+        let v  = r.join("");                                  
+        if(key == v){                                                     
+            res.push(key);
+        }else{
+            continue;
+        }
+    }
+    console.log(res);
+
+})(["malayalam","boss","pop"]);
+
+//6.Median of two sorted array
+
+(function(awa,aww){
+    res1=[];
+    res2=[];
+    awa.sort((a,b)=>a-b);                                                                                   
+    aww.sort((a,b)=>a-b);
+   let l = awa.length /2;
+   if(l%2===0){
+       res1.push(awa[(awa.length/2)-1],awa[awa.length/2]);
+       res2.push(aww[(aww.length/2)-1],aww[aww.length/2]);                     
+   }else{
+       res1.push(awa[Math.floor(awa.length/2)]);
+       res2.push(aww[Math.floor(aww.length/2)]);
+   }
+   
+   console.log(res1);
+   console.log(res2);
+})([1,2,3,4,5],[7,8,9]);
+
+//7.Remove duplicate
+
+(function(dupe){
+    let res =[];
+    res.push(dupe[0]);
+    for(let key of dupe){                              
+        if(res.indexOf(key) == -1){
+            res.push(key);
+        } 
+    }
+   console.log(res);
+})([87,76,87,54,32]);
+
+//Arrow function
+//1.Odd number
+
+var odd = num => {
+    let res=[];
+    for(let key of num){
+        if(key%2 !== 0){
+           res.push(key); 
+        }
+    }
+    return res;
+    }
+console.log(odd([11,13,19,16]));
+
+//2.Title caps
+
+var caps = arr=>{ 
+    console.log(arr.split(" ").map(words=>words[0].toUpperCase()+words.substr(1).toLowerCase()).join(" "));
+    }
+caps("work hard");
+
+//3.Sum
+
+var sum= num =>{
+    let add=0;
+    for(let k of num){
+        add+= k;                    
+        }
+    return add;
+    };
+console.log(sum([1,1,1,]));
+
+//4.Prime number
+
+var prime = num =>{
+    num = num.filter((element) => {
+        for(var i=2; i<=Math.sqrt(element);i++){
+            if(element % 2 === 0) return false;
+        }
+        return true;
+    });
+    return num;
+};
+console.log(prime([1,2,13,4]));
+
+//5.Palindromes
+
+let pali= dome =>{
+    let res=[];
+    for(let key of dome){
+        let n = key.split("");
+        let r = n.reverse();
+        let v = r.join("");
+        if(key == v){
+            res.push(key);
+        }else{
+            continue;
+        }
+    }
+    return res;
+};
+console.log(pali(["malayalam","robo"]));
